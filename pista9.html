@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymkana - Pista 9</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'MedievalSharp', cursive;
+            background: rgb(249, 235, 215);
+            color: #3b1f0e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .scroll {
+            background: rgba(255, 245, 220, 0.9);
+            border: 5px solid #6e3b16;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #5b2b0d;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        input {
+            padding: 0.7rem;
+            font-size: 1rem;
+            border: 2px solid #5b2b0d;
+            border-radius: 8px;
+            width: 80%;
+            margin-top: 1rem;
+            font-family: inherit;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.1rem;
+            border: none;
+            background: #8c3a15;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #a64b20;
+        }
+
+        #mensaje {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .correcto {
+            color: #1d6f42;
+        }
+
+        .incorrecto {
+            color: #8c1515;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll">
+        <h1>🏰 Pista 9</h1>
+        <p>
+            Pequeñas paredes y diminutas puertas,<br>
+            en mi interior hay mundos y aventuras ciertas.<br>
+            Habitantes de un tamaño reducido viven aquí,<br>
+            y quien me explore, historias descubrirá allí.<br>
+        </p>
+        <input type="text" id="respuesta" placeholder="Escribir aquí vuestra respuesta">
+        <br>
+        <button onclick="comprobar()">Comprobar</button>
+        <p id="mensaje"></p>
+    </div>
+
+    <script>
+        function normalizar(txt) {
+            return txt.toLowerCase().trim();
+        }
+
+
+        function comprobar() {
+            const respuesta = normalizar(document.getElementById('respuesta').value);
+            const correctas = ['casa de muñecas'];
+            const mensaje = document.getElementById('mensaje');
+
+            if (correctas.includes(respuesta)) {
+                mensaje.innerHTML = '✅ ¡Correcto! <br> Buscad en la CASA DE MUÑECAS y encontrad el sobre con el siguiente pergamino.';
+                mensaje.className = 'correcto';
+            } else {
+                mensaje.innerHTML = '❌ No es correcto, seguid pensando.';
+                mensaje.className = 'incorrecto';
+            }
+        }
+    </script>
+</body>
+
+</html>

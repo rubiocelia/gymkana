@@ -90,11 +90,10 @@
     <div class="scroll">
         <h1>🏰 Pista 3</h1>
         <p>
-            Tiene agua y no es botijo,<br>
-            está siempre en el jardín.<br>
-            Cada vez que se enrosca,<br>
-            aunque no espanta a una mosca<br>
-            tiene pinta de reptil.<br>
+            No soy pozo ni fuente, pero burbujeo y canto.<br>
+            Oro negro de las mañanas guardo en mi manto.<br>
+            Si quieres despertar y fuerza encontrar,<br>
+            de mí un sorbo debes tomar.<br>
         </p>
         <input type="text" id="respuesta" placeholder="Escribir aquí vuestra respuesta">
         <br>
@@ -112,11 +111,11 @@
 
         function comprobar() {
             const respuesta = normalizar(document.getElementById('respuesta').value);
-            const correctas = ['Mangera', 'Regadera'];
+            const correctas = ['cafetera'];
             const mensaje = document.getElementById('mensaje');
 
             if (correctas.includes(respuesta)) {
-                mensaje.innerHTML = '✅ ¡Correcto! <br> Buscad en los ESPEJOS y encontrad el sobre con el siguiente pergamino.';
+                mensaje.innerHTML = '✅ ¡Correcto! <br> Buscad en la CAFETERA y encontrad el sobre con el siguiente pergamino.';
                 mensaje.className = 'correcto';
             } else {
                 mensaje.innerHTML = '❌ No es correcto, seguid pensando.';
