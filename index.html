@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gymkana - Inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0efe9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+        }
+
+        input,
+        button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+        }
+
+        button {
+            background: #03A791;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Bienvenidos a la misión 🎭</h1>
+        <p>
+            Primera prueba:<br>
+            No soy rey, pero tengo corona.<br>
+            Soplo frío y brillo por dentro.<br>
+            Custodio tesoros comestibles.<br>
+            ¿Quién soy?
+        </p>
+        <input type="text" id="respuesta" placeholder="Escribe tu respuesta">
+        <button onclick="comprobar()">Comprobar</button>
+        <p id="mensaje" class="hidden"></p>
+    </div>
+
+    <script>
+        function normalizar(txt) {
+            return txt.toLowerCase()
+                .normalize('NFD')
+                .replace(/[^a-z\\s]/g, '')
+                .trim();
+        }
+
+        function comprobar() {
+            const respuesta = normalizar(document.getElementById('respuesta').value);
+            const correctas = ['nevera', 'frigorifico', 'frigo', 'refrigerador'];
+            const mensaje = document.getElementById('mensaje');
+
+            if (correctas.includes(respuesta)) {
+                mensaje.innerHTML = '¡Correcto! 🎉 Ve a la NEVERA y busca el sobre con el primer QR 📩';
+                mensaje.classList.remove('hidden');
+            } else {
+                mensaje.textContent = '❌ Esa no es la respuesta, prueba otra vez.';
+                mensaje.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>
