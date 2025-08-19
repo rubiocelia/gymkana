@@ -3,59 +3,104 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gymkana - Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymkana - Comienza la misión</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f0efe9;
+            margin: 0;
+            padding: 0;
+            font-family: 'MedievalSharp', cursive;
+            background: url('https://i.ibb.co/J23L4Jr/pergamino.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #3b1f0e;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            text-align: center;
         }
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        .scroll {
+            background: rgba(255, 245, 220, 0.9);
+            border: 5px solid #6e3b16;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            width: 90%;
             max-width: 500px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
-        input,
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #5b2b0d;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        input {
+            padding: 0.7rem;
+            font-size: 1rem;
+            border: 2px solid #5b2b0d;
+            border-radius: 8px;
+            width: 80%;
+            margin-top: 1rem;
+            font-family: inherit;
+        }
+
         button {
             margin-top: 1rem;
-            padding: 0.5rem;
-        }
-
-        button {
-            background: #03A791;
-            color: white;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.1rem;
             border: none;
-            border-radius: 5px;
+            background: #8c3a15;
+            color: #fff;
+            border-radius: 8px;
             cursor: pointer;
+            font-family: inherit;
+            transition: background 0.3s;
         }
 
-        .hidden {
-            display: none;
+        button:hover {
+            background: #a64b20;
+        }
+
+        #mensaje {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .correcto {
+            color: #1d6f42;
+        }
+
+        .incorrecto {
+            color: #8c1515;
         }
     </style>
 </head>
 
 <body>
-    <div class="card">
-        <h1>Bienvenidos a la misión 🎭</h1>
+    <div class="scroll">
+        <h1>⚔️ Comienza la misión ⚔️</h1>
         <p>
-            Primera prueba:<br>
-            No soy rey, pero tengo corona.<br>
-            Soplo frío y brillo por dentro.<br>
-            Custodio tesoros comestibles.<br>
-            ¿Quién soy?
+            Caballeros, para iniciar vuestro viaje debéis resolver la primera adivinanza:<br><br>
+            Aunque tengo cuatro patas,<br>
+            yo nunca puedo correr,<br>
+            tengo la comida encima,<br>
+            y no la puedo comer.<br>
         </p>
-        <input type="text" id="respuesta" placeholder="Escribe tu respuesta">
-        <button onclick="comprobar()">Comprobar</button>
-        <p id="mensaje" class="hidden"></p>
+        <input type="text" id="respuesta" placeholder="Escribe aquí vuestra respuesta">
+        <br>
+        <button onclick="comprobar()">Responder</button>
+        <p id="mensaje"></p>
     </div>
 
     <script>
@@ -68,15 +113,15 @@
 
         function comprobar() {
             const respuesta = normalizar(document.getElementById('respuesta').value);
-            const correctas = ['nevera', 'frigorifico', 'frigo', 'refrigerador'];
+            const correctas = ['mesa'];
             const mensaje = document.getElementById('mensaje');
 
             if (correctas.includes(respuesta)) {
-                mensaje.innerHTML = '¡Correcto! 🎉 Ve a la NEVERA y busca el sobre con el primer QR 📩';
-                mensaje.classList.remove('hidden');
+                mensaje.innerHTML = '✅ ¡Correcto! <br> Dirigíos a la MESA y encontrad el sobre con vuestro primer pergamino.';
+                mensaje.className = 'correcto';
             } else {
-                mensaje.textContent = '❌ Esa no es la respuesta, prueba otra vez.';
-                mensaje.classList.remove('hidden');
+                mensaje.innerHTML = '❌ Los bufones se equivocaron... intentad de nuevo.';
+                mensaje.className = 'incorrecto';
             }
         }
     </script>
